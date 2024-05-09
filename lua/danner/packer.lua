@@ -66,6 +66,25 @@ return require('packer').startup(function(use)
     }
 
 
+	-- autopairs
+	use {
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = function()
+			require("nvim-autopairs").setup {}
+		end
+	}
+
+	-- surrouder
+	use({
+		"kylechui/nvim-surround",
+		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end
+	})
 	if packer_bootstrap then
 		require('packer').sync()
 	end
