@@ -65,7 +65,6 @@ return require('packer').startup(function(use)
         }
     }
 
-
 	-- autopairs
 	use {
 		"windwp/nvim-autopairs",
@@ -76,15 +75,21 @@ return require('packer').startup(function(use)
 	}
 
 	-- surrouder
-	use({
-		"kylechui/nvim-surround",
+	use {
+ 		"kylechui/nvim-surround",
 		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
 		config = function()
 			require("nvim-surround").setup({
 				-- Configuration here, or leave empty to use defaults
 			})
 		end
-	})
+	}
+
+	-- integration with tmux and better navigation
+	use {
+		"alexghergh/nvim-tmux-navigation",
+	}
+
 	if packer_bootstrap then
 		require('packer').sync()
 	end
