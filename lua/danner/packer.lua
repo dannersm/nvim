@@ -37,10 +37,21 @@ return require('packer').startup(function(use)
 			'nvim-tree/nvim-web-devicons',
 		},
 	}
+
+	-- why not?
 	use ("theprimeagen/harpoon")
+
 	-- status bar
 	use {
 	  'nvim-lualine/lualine.nvim',
+	}
+
+	-- configure snippets
+	use {'rafamadriz/friendly-snippets'}
+	use {
+
+		"L3MON4D3/LuaSnip",
+		requires = { "rafamadriz/friendly-snippets" },
 	}
 
 
@@ -88,6 +99,11 @@ return require('packer').startup(function(use)
 	-- integration with tmux and better navigation
 	use {
 		"christoomey/vim-tmux-navigator",
+	}
+
+	-- integration with tmux and better navigation
+	use {
+		"tpope/vim-obsession",
 	}
 
 	if packer_bootstrap then

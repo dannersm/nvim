@@ -1,7 +1,9 @@
 -- Set up nvim-cmp.
 local cmp = require'cmp'
 local ls = require 'luasnip'
+-- setup luasnip engine
 ls.setup {}
+require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({
   snippet = {
