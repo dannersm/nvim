@@ -87,7 +87,7 @@ return require('packer').startup(function(use)
 
 	-- integration with tmux and better navigation
 	use {
-		"alexghergh/nvim-tmux-navigation",
+		"christoomey/vim-tmux-navigator",
 	}
 
 	if packer_bootstrap then
