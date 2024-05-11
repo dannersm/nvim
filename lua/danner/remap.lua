@@ -15,4 +15,7 @@ vim.keymap.set("n", "<leader>tx", ":tabclose<CR>")
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>")
 vim.keymap.set("n", "<leader>tp", ":tabp<CR>")
 
+--create vim session
+vim.keymap.set("n", "<leader>ss", ":Obsess<CR>")
+
 
