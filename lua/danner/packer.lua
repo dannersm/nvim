@@ -23,9 +23,7 @@ return require('packer').startup(function(use)
 	})
 
 	-- colorscheme catpuccin ftw
-	use ({"catppuccin/nvim", config = function()
-		vim.cmd("colorscheme catppuccin-mocha")
-	end})
+	use {"catppuccin/nvim"}
 
 	-- syntax highlighting
 	use ("nvim-treesitter/nvim-treesitter", {run = ':TSUpdate'})
