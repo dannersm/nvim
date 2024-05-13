@@ -18,4 +18,5 @@ vim.keymap.set("n", "<leader>tp", ":tabp<CR>")
 --create vim session
 vim.keymap.set("n", "<leader>ss", ":Obsess<CR>")
 
-
+--maximize current window
+vim.keymap.set('n', '<Leader>z', require('maximize').toggle)
