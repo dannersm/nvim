@@ -22,8 +22,8 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	})
 
-	-- colorscheme catpuccin ftw
-	use {"catppuccin/nvim"}
+	-- colorscheme catppuccin ftw
+	use {"catppuccin/nvim", as = "catppuccin"}
 
 	-- syntax highlighting
 	use ("nvim-treesitter/nvim-treesitter", {run = ':TSUpdate'})

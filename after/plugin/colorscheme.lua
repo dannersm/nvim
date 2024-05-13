@@ -1,3 +1,5 @@
+vim.cmd.colorscheme "catppuccin-mocha"
+
 local cat = require("catppuccin")
 cat.setup({
 	transparent_background = true,

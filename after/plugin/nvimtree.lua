@@ -4,3 +4,4 @@ vim.keymap.set("n", "<leader>tt", ":NvimTreeToggle<CR>")
 vim.keymap.set("n", "<leader>tf", ":NvimTreeFocus<CR>")
 
 vim.cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
+vim.cmd[[hi NormalNC guibg=NONE ctermbg=NONE]]
