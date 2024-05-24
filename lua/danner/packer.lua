@@ -79,6 +79,11 @@ return require('packer').startup(function(use)
         }
     }
 
+	-- formatter
+	use {
+		"stevearc/conform.nvim"
+	}
+
 	-- autopairs
 	use {
 		"windwp/nvim-autopairs",
