@@ -20,3 +20,18 @@ vim.keymap.set("n", "<leader>ss", ":Obsess<CR>")
 
 --maximize current window
 vim.keymap.set('n', '<Leader>z', require('maximize').toggle)
+
+-- copy-pasting from and to system clipboard
+vim.keymap.set('n', '<leader>y', '"+y', {noremap = true, silent=true})
+vim.keymap.set('n', '<leader>yy', '"+yy', {noremap = true, silent=true})
+vim.keymap.set('v', '<leader>y', '"+y', {noremap = true, silent=true})
+vim.keymap.set('x', '<leader>y', '"+y', {noremap = true, silent=true})
+
+vim.keymap.set('n', '<leader>p', '"+p', {noremap = true, silent=true})
+vim.keymap.set('v', '<leader>p', '"+p', {noremap = true, silent=true})
+vim.keymap.set('x', '<leader>p', '"+p', {noremap = true, silent=true})
+-- make d not go to the clipboard
+vim.keymap.set('n', 'd', '"_d', {noremap = true, silent=true})
+vim.keymap.set('v', 'd', '"_d', {noremap = true, silent=true})
+vim.keymap.set('x', 'd', '"_d', {noremap = true, silent=true})
+vim.keymap.set('n', 'dd', '"_dd', {noremap = true, silent=true})

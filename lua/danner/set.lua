@@ -8,4 +8,4 @@ vim.opt.smartcase = true
 vim.opt.autoindent = true
 vim.opt.termguicolors = true
 vim.opt.backspace = "indent,eol,start"
-vim.opt.clipboard:append("unnamedplus")
+
