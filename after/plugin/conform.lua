@@ -17,6 +17,7 @@ conf.setup({
 		html = { "htmlbeautifier" },
 		bash = { "beautysh" },
 		proto = { "buf" },
+		python = {{"black"}},
 		rust = { "rustfmt" },
 		yaml = { "yamlfix" },
 		toml = { "taplo" },

@@ -36,10 +36,9 @@ cmp.setup({
 	end, {"i","s","c",}),
 }),
   sources = cmp.config.sources({
+    { name = 'buffer' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' }, -- For luasnip users.
-  }, {
-    { name = 'buffer' },
   })
 })
 
