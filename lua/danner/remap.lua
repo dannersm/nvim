@@ -32,12 +32,7 @@ vim.keymap.set('v', '<leader>p', '"+p', {noremap = true, silent=true})
 vim.keymap.set('x', '<leader>p', '"+p', {noremap = true, silent=true})
 
 -- make x cut and d not go to the clipboard
-vim.keymap.set('n', 'x', 'd', {noremap = true, silent=true})
-vim.keymap.set('n', 'xx', 'dd', {noremap = true, silent=true})
-vim.keymap.set('v', 'x', 'd', {noremap = true, silent=true})
-vim.keymap.set('x', 'x', 'd', {noremap = true, silent=true})
-
-vim.keymap.set('n', 'dd', '"_dd', {noremap = true, silent=true})
-vim.keymap.set('v', 'd', '"_d', {noremap = true, silent=true})
-vim.keymap.set('x', 'd', '"_d', {noremap = true, silent=true})
-vim.keymap.set('n', 'dd', '"_dd', {noremap = true, silent=true})
+vim.keymap.set('n', '<leader>dd', '"_dd', {noremap = true, silent=true})
+vim.keymap.set('v', '<leader>d', '"_d', {noremap = true, silent=true})
+vim.keymap.set('x', '<leader>d', '"_d', {noremap = true, silent=true})
+vim.keymap.set('n', '<leader>dd', '"_dd', {noremap = true, silent=true})
