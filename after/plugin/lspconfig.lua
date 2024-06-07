@@ -37,4 +37,4 @@ lsp.pylsp.setup{
     },
 }
 --]]
-lsp.pyright.setup({on_attach=on_attach, capabilities=require("cmp_nvim_lsp").default_capabilities() })
+lsp.pyright.setup({on_attach=on_attach})
