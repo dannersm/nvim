@@ -18,9 +18,6 @@ vim.keymap.set("n", "<leader>tp", ":tabp<CR>")
 --create vim session
 vim.keymap.set("n", "<leader>ss", ":Obsess<CR>")
 
---maximize current window
-vim.keymap.set('n', '<Leader>z', require('maximize').toggle)
-
 -- copy-pasting from and to system clipboard
 vim.keymap.set('n', '<leader>y', '"+y', {noremap = true, silent=true})
 vim.keymap.set('n', '<leader>yy', '"+yy', {noremap = true, silent=true})

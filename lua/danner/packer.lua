@@ -42,7 +42,6 @@ return require('packer').startup(function(use)
 	-- maximization
 	use {
 		'declancm/maximize.nvim',
-		config = function() require('maximize').setup() end
 	}
 	-- status bar
 	use {
