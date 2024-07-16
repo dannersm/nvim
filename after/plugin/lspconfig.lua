@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = {"lua_ls", "pyright", "tsserver"},
+	ensure_installed = {"lua_ls", "pyright", "tsserver", "svelte", "emmet_ls"}
 })
 
 -- on attach func
@@ -14,28 +14,7 @@ local on_attach = function(client, bufnr)
 end
 local lsp = require("lspconfig")
 lsp.lua_ls.setup{on_attach = on_attach}
---[[
-lsp.pylsp.setup{
-	on_attach = on_attach,
-	capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    settings = {
-        pylsp = {
-            plugins = {
-                jedi_completion = {
-                    include_params = true,
-                },
-				jedi_signature_help = {
-					enabled = true
-				},
-				pycodestyle={
-					enabled=true,
-					ignore = {'E501', 'E321', 'E266'},
-					maxLineLength=120
-				}
-            },
-        },
-    },
-}
---]]
 lsp.pyright.setup({on_attach=on_attach})
 lsp.tsserver.setup({on_attach=on_attach})
+lsp.svelte.setup({})
+lsp.emmet_ls.setup({})

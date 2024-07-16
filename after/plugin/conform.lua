@@ -2,7 +2,6 @@ local conf = require("conform")
 conf.setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
-		svelte = { { "prettierd", "prettier" } },
 		javascript = { { "prettierd", "prettier" } },
 		typescript = { { "prettierd", "prettier" } },
 		javascriptreact = { { "prettierd", "prettier" } },
