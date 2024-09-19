@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = {"lua_ls", "pyright", "tsserver", "svelte", "emmet_ls"}
+	ensure_installed = {"lua_ls", "pyright", "emmet_ls"}
 })
 
 -- on attach func
@@ -15,6 +15,4 @@ end
 local lsp = require("lspconfig")
 lsp.lua_ls.setup{on_attach = on_attach}
 lsp.pyright.setup({on_attach=on_attach})
-lsp.tsserver.setup({on_attach=on_attach})
-lsp.svelte.setup({})
 lsp.emmet_ls.setup({})
