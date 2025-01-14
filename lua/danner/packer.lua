@@ -113,6 +113,17 @@ return require('packer').startup(function(use)
 		"tpope/vim-obsession",
 	}
 
+	-- molten
+	use({
+		"benlubas/molten-nvim",
+		tag = "v1.*", -- equivalent to version "^1.0.0"
+		run = ":UpdateRemotePlugins", -- equivalent to build
+		config = function()
+			-- Initialize plugin configuration
+			vim.g.molten_output_win_max_height = 12
+		end,
+	})
+
 	if packer_bootstrap then
 		require('packer').sync()
 	end

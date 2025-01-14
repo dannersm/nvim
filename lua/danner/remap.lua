@@ -1,5 +1,6 @@
 -- leader to space
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 --window splitting settings
 vim.keymap.set("n", "<leader>sv", ":vsplit<CR>")
