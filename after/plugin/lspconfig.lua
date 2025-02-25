@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = {"lua_ls", "pyright", "emmet_ls"}
+	ensure_installed = {"lua_ls", "pyright", "emmet_ls", "tailwindcss"}
 })
 
 -- on attach func
@@ -16,3 +16,4 @@ local lsp = require("lspconfig")
 lsp.lua_ls.setup{on_attach = on_attach}
 lsp.pyright.setup({on_attach=on_attach})
 lsp.emmet_ls.setup({})
+lsp.tailwindcss.setup({on_attach=on_attach})
