@@ -7,7 +7,11 @@ vim.keymap.set("n", "<localleader>rr", ":MoltenReevaluateCell<CR>",
 vim.keymap.set("n", "<localleader>rd", ":MoltenDelete<CR>",
     { silent = true, desc = "molten delete cell" })
 
-vim.keymap.set("n", "<localleader>oh", ":MoltenHideOutput<CR>",
+vim.keymap.set("n", "<localleader>ho", ":MoltenHideOutput<CR>",
     { silent = true, desc = "hide output" })
-vim.keymap.set("n", "<localleader>os", ":noautocmd MoltenEnterOutput<CR>",
+vim.keymap.set("n", "<localleader>eo", ":noautocmd MoltenEnterOutput<CR>",
     { silent = true, desc = "show/enter output" })
+
+
+vim.keymap.set("n", "<localleader>mr", ":MoltenRestart<CR>",
+    { silent = true, desc = "restart the kernel" })
