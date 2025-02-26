@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = {"lua_ls", "pyright", "emmet_ls", "tailwindcss"}
+	ensure_installed = {"lua_ls", "pyright", "emmet_ls", "tailwindcss", "black"}
 })
 
 -- on attach func
