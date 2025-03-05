@@ -9,4 +9,3 @@ vim.opt.autoindent = true
 vim.opt.termguicolors = true
 vim.opt.backspace = "indent,eol,start"
 vim.opt.scrolloff = 10
-

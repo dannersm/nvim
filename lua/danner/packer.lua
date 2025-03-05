@@ -1,13 +1,13 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+	local fn = vim.fn
+	local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+		vim.cmd [[packadd packer.nvim]]
+		return true
+	end
+	return false
 end
 
 local packer_bootstrap = ensure_packer()
@@ -17,18 +17,19 @@ return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
 	-- fuzzy finder
-	use ({
-		'nvim-telescope/telescope.nvim', tag = '0.1.6',
-		requires = { {'nvim-lua/plenary.nvim'} }
+	use({
+		'nvim-telescope/telescope.nvim',
+		tag = '0.1.8',
+		requires = { { 'nvim-lua/plenary.nvim' } }
 	})
 
 	-- colorscheme catppuccin ftw
-	use {"catppuccin/nvim", as = "catppuccin"}
+	use { "catppuccin/nvim", as = "catppuccin" }
 
 	-- syntax highlighting
-	use ("nvim-treesitter/nvim-treesitter", {run = ':TSUpdate'})
+	use("nvim-treesitter/nvim-treesitter", { run = ':TSUpdate' })
 
-	-- filetree 
+	-- filetree
 	use {
 		'nvim-tree/nvim-tree.lua',
 		requires = {
@@ -37,7 +38,7 @@ return require('packer').startup(function(use)
 	}
 
 	-- why not?
-	use ("theprimeagen/harpoon")
+	use("theprimeagen/harpoon")
 
 	-- maximization
 	use {
@@ -45,20 +46,18 @@ return require('packer').startup(function(use)
 	}
 	-- status bar
 	use {
-	  'nvim-lualine/lualine.nvim',
+		'nvim-lualine/lualine.nvim',
 	}
 
 	-- configure snippets
-	use {'rafamadriz/friendly-snippets'}
 	use {
-
 		"L3MON4D3/LuaSnip",
 		requires = { "rafamadriz/friendly-snippets" },
 	}
 
 
 	-- lsp management
-	use ({
+	use({
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
@@ -66,8 +65,8 @@ return require('packer').startup(function(use)
 
 	-- completion engine
 	use {
-        "hrsh7th/nvim-cmp",
-        requires = {
+		"hrsh7th/nvim-cmp",
+		requires = {
 			'neovim/nvim-lspconfig',
 			'hrsh7th/cmp-nvim-lsp',
 			'hrsh7th/cmp-buffer',
@@ -75,8 +74,8 @@ return require('packer').startup(function(use)
 			'hrsh7th/cmp-cmdline',
 			'L3MON4D3/LuaSnip',
 			'saadparwaiz1/cmp_luasnip',
-        }
-    }
+		}
+	}
 
 	-- formatter
 	use {
@@ -88,18 +87,7 @@ return require('packer').startup(function(use)
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = function()
-			require("nvim-autopairs").setup {}
-		end
-	}
-
-	-- surrouder
-	use {
- 		"kylechui/nvim-surround",
-		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
-			})
+			require("nvim-autopairs").setup()
 		end
 	}
 
@@ -116,11 +104,25 @@ return require('packer').startup(function(use)
 	-- molten
 	use({
 		"benlubas/molten-nvim",
-		tag = "v1.*", -- equivalent to version "^1.0.0"
+		tag = "v1.*",           -- equivalent to version "^1.0.0"
 		run = ":UpdateRemotePlugins", -- equivalent to build
+	})
+
+	-- codecompanion for llm
+	use({
+		"olimorris/codecompanion.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		}
+	})
+
+	-- markdown renderer
+	use({
+		'MeanderingProgrammer/render-markdown.nvim',
+		after = { 'nvim-treesitter' },
+		requires = { 'nvim-tree/nvim-web-devicons', opt = true }, -- if you prefer nvim-web-devicons
 		config = function()
-			-- Initialize plugin configuration
-			vim.g.molten_output_win_max_height = 12
 		end,
 	})
 
