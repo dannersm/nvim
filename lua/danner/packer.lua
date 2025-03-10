@@ -23,6 +23,8 @@ return require('packer').startup(function(use)
 		requires = { { 'nvim-lua/plenary.nvim' } }
 	})
 
+	use({ 'nvim-telescope/telescope-ui-select.nvim'})
+
 	-- colorscheme catppuccin ftw
 	use { "catppuccin/nvim", as = "catppuccin" }
 
