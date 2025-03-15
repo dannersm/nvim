@@ -119,6 +119,12 @@ return require('packer').startup(function(use)
 		}
 	})
 
+	-- project indexation with vectorcode
+	use {
+		"Davidyz/VectorCode",
+		requires = { "nvim-lua/plenary.nvim" }
+	}
+
 	-- markdown renderer
 	use({
 		'MeanderingProgrammer/render-markdown.nvim',

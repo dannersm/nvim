@@ -8,5 +8,10 @@ require("lualine").setup({
 			}
 
 		}
+	},
+	tabline = {
+		lualine_y = {
+			require("vectorcode.integrations").lualine({show_job_count = true})
+		}
 	}
 })
