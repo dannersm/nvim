@@ -75,14 +75,6 @@ require("codecompanion").setup({
                     callback = require("vectorcode.integrations").codecompanion.chat.make_tool(),
                 }
             },
-            roles = {
-                llm = function(adapter)
-                    return "CodeCompanion (" .. adapter.formatted_name .. ")"
-                end,
-                user = function(adapter)
-                    return "Me (" .. adapter.formatted_name .. ")"
-                end,
-            }
         },
         inline = {
             adapter = "ollama",
@@ -112,6 +104,5 @@ require("codecompanion").setup({
 })
 
 vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v" }, "<leader>ct", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanion<cr>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
 vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
