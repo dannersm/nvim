@@ -43,10 +43,10 @@ require("codecompanion").setup({
         anthropic_extended = function()
             return require("codecompanion.adapters").extend("anthropic", {
                 schema = {
-                    extended_thinking = true,
-                    thinking_budget = 6000,
-                    max_tokens = 10000,
-                    temperature = 0.2
+                    extended_thinking = {default=true},
+                    thinking_budget = {default=6000},
+                    max_tokens = {default=10000},
+                    temperature = {default=0.2}
                 },
                 env = {
                     api_key = "cmd: cat ~/.keys/anthropic"
@@ -56,9 +56,9 @@ require("codecompanion").setup({
         anthropic = function()
             return require("codecompanion.adapters").extend("anthropic", {
                 schema = {
-                    extended_thinking = false,
-                    max_tokens = 5000,
-                    temperature = 0
+                    extended_thinking = {default=false},
+                    max_tokens = {default=5000},
+                    temperature = {default=0}
                 },
                 env = {
                     api_key = "cmd: cat ~/.keys/anthropic"
