@@ -34,19 +34,19 @@ require("codecompanion").setup({
         ollama = function()
             return require("codecompanion.adapters").extend("ollama", {
                 schema = {
-                    model = {
-                        default = preferred_model_picker(ollama_models),
-                    },
+                    model = { default = preferred_model_picker(ollama_models) },
+                    temperature = { default = 0.1 },
+                    top_k = { default = 20 },
                 },
             })
         end,
         anthropic_extended = function()
             return require("codecompanion.adapters").extend("anthropic", {
                 schema = {
-                    extended_thinking = {default=true},
-                    thinking_budget = {default=6000},
-                    max_tokens = {default=10000},
-                    temperature = {default=0.2}
+                    extended_thinking = { default = true },
+                    thinking_budget = { default = 6000 },
+                    max_tokens = { default = 10000 },
+                    temperature = { default = 0 }
                 },
                 env = {
                     api_key = "cmd: cat ~/.keys/anthropic"
@@ -56,15 +56,18 @@ require("codecompanion").setup({
         anthropic = function()
             return require("codecompanion.adapters").extend("anthropic", {
                 schema = {
-                    extended_thinking = {default=false},
-                    max_tokens = {default=5000},
-                    temperature = {default=0}
+                    extended_thinking = { default = false },
+                    max_tokens = { default = 5000 },
+                    temperature = { default = 0 }
                 },
                 env = {
                     api_key = "cmd: cat ~/.keys/anthropic"
                 }
             })
         end,
+        opts = {
+            show_defaults = false
+        }
     },
     strategies = {
         chat = {
@@ -87,7 +90,7 @@ require("codecompanion").setup({
             height = 15,
             opts = {
                 show_default_actions = true,
-                show_default_prompt_library = true
+                show_default_prompt_library = false
             }
         },
         chat = {
@@ -100,6 +103,33 @@ require("codecompanion").setup({
         inline = {
             layout = "horizontal"
         }
+    },
+    opts = {
+        system_prompt = function(_)
+            return [[
+You are an expert AI programming assistant running in the neovim text editor of a user's machine.
+As such, you will have access to the buffers, files and command windows via tools that will be given to you in xml format.
+
+You must:
+- Follow the user's requirements carefully and to the letter.
+- Keep your answers short and impersonal, especially if the user responds with context outside of your tasks.
+- Minimize other prose.
+- Use Markdown formatting in your answers.
+- Include the programming language name at the start of the Markdown code blocks.
+- NOT include line numbers in code blocks.
+- NOT wrap the whole response in triple backticks.
+- Only return code that's relevant to the task at hand and minimize the returned code.
+- Use actual line breaks instead of '\n' in your response to begin new lines.
+- Use '\n' only when you want a literal backslash followed by a character 'n'.
+- All non-code responses must be in %s.
+
+When given a task:
+1. Think step-by-step and describe your plan for what to build in pseudocode, unless asked not to do so.
+2. Output the code in a single code block, being careful to only return relevant code.
+3. You should always generate short suggestions for the next user turns that are relevant to the conversation.
+4. You can only give one reply for each conversation turn.
+]]
+        end
     }
 })
 
