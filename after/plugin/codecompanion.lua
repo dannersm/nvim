@@ -21,6 +21,7 @@ end
 
 
 local ollama_models = {
+    'qwq',
     'qwen2.5-coder:14b',
     'qwen2.5-coder:32b',
     'qwen2.5-coder:7b',
@@ -35,7 +36,8 @@ require("codecompanion").setup({
             return require("codecompanion.adapters").extend("ollama", {
                 schema = {
                     model = { default = preferred_model_picker(ollama_models) },
-                    temperature = { default = 0.1 },
+                    context = { default = 16384},
+                    temperature = { default = 0.4 },
                     top_k = { default = 20 },
                 },
             })
