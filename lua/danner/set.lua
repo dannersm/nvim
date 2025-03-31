@@ -8,4 +8,4 @@ vim.opt.wrap = true
 vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.termguicolors = true
-vim.opt_local.scrolloff = 20
+vim.opt.scrolloff = 20
