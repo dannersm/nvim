@@ -20,3 +20,5 @@ vim.keymap.set("n", "<leader>eo", ":noautocmd MoltenEnterOutput<CR>",
 
 vim.keymap.set("n", "<leader>mr", ":MoltenRestart<CR>",
     { silent = true, desc = "restart the kernel" })
+vim.keymap.set("n", "<leader>md", ":MoltenDeinit<CR>",
+    { silent = true, desc = "Deinitialize the kernel" })
