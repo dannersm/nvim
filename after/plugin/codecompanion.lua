@@ -21,8 +21,8 @@ end
 
 
 local ollama_models = {
-    'qwq',
     'qwen2.5-coder:14b',
+    'qwq',
     'qwen2.5-coder:32b',
     'qwen2.5-coder:7b',
     'qwen2.5-coder:3b',
