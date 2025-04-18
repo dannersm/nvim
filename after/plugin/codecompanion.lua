@@ -32,11 +32,23 @@ local ollama_models = {
 
 require("codecompanion").setup({
     adapters = {
+        gemini = function()
+            return require("codecompanion.adapters").extend("gemini", {
+                schema = {
+                    model = {
+                        default = "gemini-2.0-flash",
+                    },
+                },
+                env = {
+                    api_key = "cmd: cat ~/.keys/aistudio"
+                },
+            })
+        end,
         ollama = function()
             return require("codecompanion.adapters").extend("ollama", {
                 schema = {
                     model = { default = preferred_model_picker(ollama_models) },
-                    context = { default = 16384},
+                    context = { default = 16384 },
                     temperature = { default = 0.4 },
                     top_k = { default = 20 },
                 },
