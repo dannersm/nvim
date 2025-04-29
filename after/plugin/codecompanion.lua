@@ -24,6 +24,7 @@ local ollama_models = {
     'qwen2.5-coder:14b',
     'qwq',
     'qwen2.5-coder:32b',
+    'cogito',
     'qwen2.5-coder:7b',
     'qwen2.5-coder:3b',
     'qwen2.5-coder:1.5b',
