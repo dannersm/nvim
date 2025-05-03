@@ -21,14 +21,10 @@ end
 
 
 local ollama_models = {
+    'qwen3:14b',
     'qwen2.5-coder:14b',
-    'qwq',
-    'qwen2.5-coder:32b',
     'cogito',
     'qwen2.5-coder:7b',
-    'qwen2.5-coder:3b',
-    'qwen2.5-coder:1.5b',
-    'qwen2.5-coder:0.5b',
 }
 
 require("codecompanion").setup({
@@ -49,9 +45,10 @@ require("codecompanion").setup({
             return require("codecompanion.adapters").extend("ollama", {
                 schema = {
                     model = { default = preferred_model_picker(ollama_models) },
-                    context = { default = 16384 },
-                    temperature = { default = 0.4 },
+                    context = { default = 32768 },
+                    temperature = { default = 0.2 },
                     top_k = { default = 20 },
+                    top_p = { default = .8 },
                 },
             })
         end,
@@ -59,8 +56,8 @@ require("codecompanion").setup({
             return require("codecompanion.adapters").extend("anthropic", {
                 schema = {
                     extended_thinking = { default = true },
-                    thinking_budget = { default = 6000 },
-                    max_tokens = { default = 10000 },
+                    thinking_budget = { default = 16384 },
+                    max_tokens = { default = 16384 },
                     temperature = { default = 0 }
                 },
                 env = {
@@ -72,7 +69,7 @@ require("codecompanion").setup({
             return require("codecompanion.adapters").extend("anthropic", {
                 schema = {
                     extended_thinking = { default = false },
-                    max_tokens = { default = 5000 },
+                    max_tokens = { default = 16384 },
                     temperature = { default = 0 }
                 },
                 env = {
