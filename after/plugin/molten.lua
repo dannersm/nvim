@@ -1,7 +1,8 @@
 vim.g.molten_auto_image_output = true
 vim.g.molten_enter_output_behavior = "open_and_enter"
 vim.g.molten_virt_text_max_lines = 30
-vim.g.molten_wrap_output = true
+vim.g.molten_wrap_output = false
+vim.g.molten_auto_open_html_in_browser = true
 
 vim.keymap.set("v", "<leader>r", ":<C-u>MoltenEvaluateVisual<CR>gv",
     { silent = true, desc = "evaluate visual selection" })
