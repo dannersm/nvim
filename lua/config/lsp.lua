@@ -1,13 +1,4 @@
-vim.lsp.enable("pyright")
-vim.lsp.enable("lua_ls")
-
-local function tab_complete()
-	if vim.fn.pumvisible() == 1 then
-		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, true, true), "n", true)
-	else
-		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, true, true), "n", true)
-	end
-end
+vim.lsp.enable({"pyright", "lua_ls"})
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
@@ -22,7 +13,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-		vim.keymap.set("i", "<Tab>", tab_complete, {})
+		vim.keymap.set("i", "<Tab>", "<C-y>", {})
 		vim.keymap.set("i", "<C-Space>", vim.lsp.completion.get, {})
 	end,
 })
