@@ -1,5 +1,4 @@
 vim.opt.nu = true
-vim.opt.relativenumber = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 0
 vim.opt.expandtab = true
@@ -9,3 +8,4 @@ vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 20
+vim.opt.completeopt = "menu,menuone,noinsert,popup"

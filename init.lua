@@ -1,2 +1,1 @@
-require("danner")
-
+require("config")
