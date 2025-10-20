@@ -9,4 +9,3 @@ require("config.lsp")
 require("config.treesitter-configs")
 require("config.appearance")
 require("config.remaps")
-
