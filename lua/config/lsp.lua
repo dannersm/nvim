@@ -17,9 +17,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.api.nvim_create_autocmd("InsertCharPre", { callback = vim.lsp.completion.get })
 
 vim.diagnostic.config({
-	virtual_text = false,
-	virtual_lines = {
+	virtual_text = {
 		current_line = true,
-	},
+	}
 })
 

@@ -7,5 +7,4 @@ return {
 		{"<leader>lg", function() require("telescope.builtin").live_grep() end}
 	}
 	},
-	{{'nvim-telescope/telescope-ui-select.nvim' }},
 }
