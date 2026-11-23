@@ -1,24 +1,38 @@
--- leader to space
-vim.g.mapleader = " "
+local map = vim.keymap.set
 
---window splitting settings
-vim.keymap.set("n", "<leader>sv", ":vsplit<CR>")
-vim.keymap.set("n", "<leader>sh", ":split<CR>")
+-- window splitting
+map("n", "<leader>sv", "<cmd>vsplit<CR>")
+map("n", "<leader>sh", "<cmd>split<CR>")
 
---clear search
-vim.keymap.set("n", "<leader>nh", ":nohl<CR>")
+-- clear search
+map("n", "<leader>nh", "<cmd>nohl<CR>")
 
---create vim session
-vim.keymap.set("n", "<leader>ss", ":Obsess<CR>")
+-- vim session
+map("n", "<leader>ss", "<cmd>Obsess<CR>")
 
--- copy-pasting from and to system clipboard
-vim.keymap.set({"n", "v", "x"}, '<leader>y', '"+y', {noremap = true, silent=true})
-vim.keymap.set('n', '<leader>yy', '"+yy', {noremap = true, silent=true})
+-- system clipboard
+map({ "n", "x" }, "<leader>y", '"+y')
+map("n", "<leader>yy", '"+yy')
+map({ "n", "x" }, "<leader>p", '"+p')
 
-vim.keymap.set({"n", "v", "x"}, '<leader>p', '"+p', {noremap = true, silent=true})
+-- delete without yanking
+map("n", "<leader>dd", '"_dd')
+map({ "n", "x" }, "<leader>d", '"_d')
 
--- make x cut and d not go to the clipboard
-vim.keymap.set('n', '<leader>dd', '"_dd', {noremap = true, silent=true})
-vim.keymap.set({"n", "v", "x"}, '<leader>d', '"_d', {noremap = true, silent=true})
-vim.keymap.set({"n", "v"}, '<leader>cf', require("conform").format)
+-- format
+map({ "n", "x" }, "<leader>cf", function() require("conform").format() end)
 
+-- telescope
+map("n", "<leader>ff", function() require("telescope.builtin").find_files() end)
+map("n", "<leader>lg", function() require("telescope.builtin").live_grep() end)
+
+-- nvim-tree
+map({ "n", "x" }, "<leader>tt", "<cmd>NvimTreeToggle<CR>")
+map({ "n", "x" }, "<leader>tf", "<cmd>NvimTreeFocus<CR>")
+
+-- molten
+map("n", "<leader>mi", "<cmd>MoltenInit<CR>")
+map("n", "<leader>rr", "<cmd>MoltenReevaluateCell<CR>")
+map("x", "<leader>r", ":<C-u>MoltenEvaluateVisual<CR>gv")
+map("n", "<leader>rl", "<cmd>MoltenEvaluateLine<CR>")
+map("n", "<leader>eo", "<cmd>noautocmd MoltenEnterOutput<CR>")
